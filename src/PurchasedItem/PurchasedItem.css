@@ -1,0 +1,15 @@
+.purchased-item{
+    display: flex;
+    justify-content: space-around;
+    background-color: lightgray;
+    text-align: center;
+    margin: 30px;
+    border-radius: 20px;
+}
+
+ul{
+    padding: 0;
+}
+
+
+

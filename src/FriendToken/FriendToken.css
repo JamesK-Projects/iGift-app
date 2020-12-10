@@ -1,0 +1,12 @@
+header{
+    padding: 30px 30px;
+}
+
+.friend-token{
+    display: flex;
+    justify-content: space-between;
+    background-color: lightgrey;
+    padding: 30px 30px;
+    margin: 5%;
+    border-radius: 10px;
+}

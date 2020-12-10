@@ -1,0 +1,14 @@
+.friend-wishlist, .friend-total{
+    background-color: grey;
+    margin: 30px 10% 30px 10%;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+label{
+    font-size: larger;
+}
+
+input{
+    margin-bottom: 20px;
+}
