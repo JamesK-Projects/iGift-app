@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link, withRouter } from 'react-router-dom';
+import { Route, Link, withRouter, Switch } from 'react-router-dom';
 import LandingPage from './LandingPage/LandingPage';
 import BudgetPage from './BudgetPage/BudgetPage';
 import ProfilePage from './ProfilePage/ProfilePage';
@@ -199,28 +199,30 @@ class App extends Component {
     	return (
 			<div>
 				<iGiftContext.Provider value={contextValue}>
-					<Route 
-						path='/'
-						component={Header}
-					// <Header props={this.props}
-					/>
-					
-					<Route 
-						exact path='/'
-						component={LandingPage}
-					/>
-					<Route 
-						path='/budget-page/users/:userId'
-						component={BudgetPage}
-					/>
-					<Route 
-						path='/login'
-						component={LoginPage}
-					/>
-					<Route 
-						path='/profiles/:profileId'
-						component={ProfilePage}
-					/>
+					<Switch>
+						<Route 
+							path='/'
+							component={Header}
+						// <Header props={this.props}
+						/>
+						
+						<Route 
+							exact path='/'
+							component={LandingPage}
+						/>
+						<Route 
+							path='/budget-page/users/:userId'
+							component={BudgetPage}
+						/>
+						<Route 
+							path='/login'
+							component={LoginPage}
+						/>
+						<Route 
+							path='/profiles/:profileId'
+							component={ProfilePage}
+						/>
+					</Switch>	
 				</iGiftContext.Provider>
 				<footer>
         			James K Projects
