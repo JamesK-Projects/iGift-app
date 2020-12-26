@@ -8,7 +8,7 @@ class LandingPage extends Component {
         return (
             <div>
                 <header>
-                    <h1 className="app-name">iGift</h1>
+                    {/* <h1 className="app-name">iGift</h1> */}
                     <h2 className="app-slogan">Gift Smarter.</h2>
                 </header>
                 <section className="profile-section">
