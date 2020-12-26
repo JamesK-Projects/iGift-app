@@ -139,9 +139,9 @@ class App extends Component {
 
 
 	updateBudget = (newBudget) => {
-		console.log('hello')
-		const updatedBudget = newBudget;
-		const { userId } = 1 //temporary - need to use authenticated user's id
+		const updatedBudget = Number(newBudget);
+		console.log(typeof(updatedBudget))
+		const { userId } = 1 //temporary - need to use authenticated user's id later
 		const budget = { budget: updatedBudget, id: 1 }
 		console.log(budget)
 		fetch('http://localhost:8000/' + `api/users/1`, {
