@@ -36,7 +36,6 @@ class CreateAccount extends Component {
 
     handleSubmit = (e) => {
         //e.preventDefault()
-        console.log(this.state)
         fetch(config.API_ENDPOINT + 'api/users', {
             method: 'POST',
             body: JSON.stringify(this.state),

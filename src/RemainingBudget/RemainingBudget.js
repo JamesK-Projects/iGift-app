@@ -9,13 +9,6 @@ class RemainingBudget extends Component {
         })
 
         let totalSpent = 0;
-        console.log(this.props)
-
-        // for(let i = 0; i < this.props.profiles.length; i++){
-        //     for(let j = 0; j < this.props.profiles[i].wishlist.length; j++){
-        //         totalSpent += this.props.profiles[i].wishlist[j].cost;
-        //     } 
-        // }
 
         this.props.profiles.map(profile => {
             if(profile.user_id === this.props.user.id){
@@ -25,10 +18,7 @@ class RemainingBudget extends Component {
                 }
             })
             }
-            
         })
-
-        console.log(this.props.user)
 
         const totalRemaining = this.props.user.budget - totalSpent;
 

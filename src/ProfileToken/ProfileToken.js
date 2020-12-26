@@ -7,7 +7,6 @@ class ProfileToken extends Component {
     static contextType = iGiftContext
 
     render() { 
-        console.log('hellooooo')
         const formatter = new Intl.NumberFormat('en-US', {
             style: 'currency',
             currency: 'USD',

@@ -24,13 +24,11 @@ class AddProfile extends Component {
             headers: {
 				'content-type': 'application/json'
 		 	}
-
         })
         .then(res => {
             if(!res.ok){
                 throw new Error(res.status)
             }
-            //console.log(res.json())
             return res.json()
         })
         .then(data => {

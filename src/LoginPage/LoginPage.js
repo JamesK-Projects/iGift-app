@@ -12,7 +12,6 @@ class LoginPage extends Component {
         e.preventDefault()
         this.context.users.map(user => {
             if (user.username == this.state.username && user.password == this.state.password){
-                console.log(user)
                 this.props.history.push(`/budget-page/users/${user.id}`)
             }
             

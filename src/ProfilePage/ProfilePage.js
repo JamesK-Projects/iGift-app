@@ -9,13 +9,10 @@ class ProfilePage extends Component {
     static contextType = iGiftContext;
 
     render() { 
-        console.log(this.props)
         return (
             <div>
                 {this.context.profiles.map((profile) => {
                     if(this.props.match.params.profileId == profile.id){
-                        console.log(this.context)
-                        console.log(profile)
                         return(
                             <div>
                                 <h1>

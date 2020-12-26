@@ -20,7 +20,7 @@ class ProfilePurchasedTotal extends Component {
             }
             
         })
-        console.log(purchasedTotal)
+        
         return (
             <div>
                 <h2>Total Spent on {this.props.profile.name}: {formatter.format(purchasedTotal)}</h2>

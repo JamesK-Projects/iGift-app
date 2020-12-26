@@ -16,18 +16,6 @@ class BudgetPage extends Component {
         })
     }
 
-    // setUser = (userId) => {
-    //     console.log(userId)
-    //     this.context.users.map(user => {
-    //         if(user.id === userId){
-                
-    //             return user
-    //         }
-    //     })
-    // }
-
-   
-
     render() { 
         const formatter = new Intl.NumberFormat('en-US', {
             style: 'currency',
@@ -39,15 +27,10 @@ class BudgetPage extends Component {
             return null
         }
 
-
-
-        console.log(this.context)
-        console.log(this.props)
         return (
-            <iGiftContext.Consumer>
-                {(context) => (
-                    context.users.map(user => {
-                        console.log(this.props.match.params.userId)
+            // <iGiftContext.Consumer>
+            //     {(context) => (
+                    this.context.users.map((user, index) => {
                         if(user.id == this.props.match.params.userId){
                             
                             return(
@@ -56,20 +39,20 @@ class BudgetPage extends Component {
                                     <h1>My Budget:</h1>
                                     <h2>{formatter.format(user.budget)}</h2>
                                     <input type="text" placeholder="New Budget" name="budget" id="budget"  onChange={(event) => this.setBudget(event)}/>
-                                    <input type="button" value="Update Budget" onClick={() => context.updateBudget(this.state.budget, this.props.match.params.userId)}/>
+                                    <input type="button" value="Update Budget" onClick={() => this.context.updateBudget(this.state.budget, this.props.match.params.userId)}/>
                                 </section>
-                                <ProfileList user={user} />
-                                <AddProfile user={user} />
+                                <ProfileList user={user} key={user.id}/>
+                                <AddProfile user={user} key={user.username}/>
                                 <section className="current-budget">
-                                    <RemainingBudget budget={user.budget} user={user} profiles={context.profiles} wishlists={context.wishlists} {...this.props}/>
+                                    <RemainingBudget budget={user.budget} key={index} user={user} profiles={this.context.profiles} wishlists={this.context.wishlists} {...this.props}/>
                                 </section>
                             </div>
                         ) 
                         }
                         
                     })
-                )}
-            </iGiftContext.Consumer>
+            //     )}
+            // </iGiftContext.Consumer>
         );
     }
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CreateAccount from '../CreateAccount/CreateAccount';
 import './LandingPage.css';
-import Gift from '../images/gift.png'
+
 
 class LandingPage extends Component {
     render() { 
@@ -10,7 +10,7 @@ class LandingPage extends Component {
                 <header>
                     {/* <h1 className="app-name">iGift</h1> */}
                     <h2 className="app-slogan">Gift Smarter.</h2>
-                    <img src={Gift} />
+                    
                 </header>
                 <section className="profile-section">
                     <header>

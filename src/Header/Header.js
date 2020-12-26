@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import Gift from '../images/gift.png'
 //import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 //import { Hyph } from '../Utils/Utils'
 import TokenService from '../Services/token-service'
@@ -39,11 +40,16 @@ export default class Header extends Component {
   render() {
     return (
       <nav className='Header'>
-        <h1 className="app-name">iGift</h1>
+        <div className='name-and-icon'>
+					<img className="gift-image" src={Gift} />
+					<h1 className="app-name">iGift</h1>
+				</div>
         {/* {this.renderLogoutLink()}
         {this.renderLoginLink()} */}
-        <Link to='/login'>Log In</Link>
-        <Link to='/'>Log Out</Link>
+				<div className='links'>
+					<Link to='/login'>Log In</Link>
+					<Link to='/'>Log Out</Link>
+				</div>
       </nav>
     )
   }

@@ -39,7 +39,6 @@ class ProfileWishlist extends Component {
                 {this.props.wishlists.map((item, index) => {
                     
                     if(item.profile_id === this.props.profile.id){
-                        console.log(item)
                         return(
                             <WishlistItem item={item} key={index} />
                         )

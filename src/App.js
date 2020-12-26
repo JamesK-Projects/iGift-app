@@ -22,7 +22,6 @@ class App extends Component {
 	}
 
 	setUsers = users => {
-		console.log(users)
 		this.setState({
 			users,
 			error: null
@@ -31,8 +30,6 @@ class App extends Component {
 		// // 	this.props.history.push('/budget-page/users/1')
 		// }
 		)
-		
-		console.log(this.state.users)
 	}
 	
 
@@ -107,21 +104,18 @@ class App extends Component {
 	}
 
 	componentDidMount() {
-		console.log('hello')
 		this.getUsers()
 		this.getProfiles()
 		this.getWishlists()
 	}
 
 	addItem = (newItem, price, profileId) => {
-		console.log(newItem, price, profileId)
 		const item = { 
 			name: newItem,
 			cost: price,
 			checked: false,
 			profile_id: profileId 
 		}
-		console.log(item)
 		fetch('http://localhost:8000/' + `api/wishlists`, {
 			method: 'POST',
 			body: JSON.stringify(item),
@@ -154,11 +148,9 @@ class App extends Component {
 		// 		wishlists: newWishlist //need to match profiles.id to wishlists.profile_id
 		// 	})
 		// })
-		console.log(this.state)
 	}
 
 	deleteItem = (itemId) => {
-		console.log(itemId)
 		const newWishlists = this.state.wishlists.filter(wishlist => 
 			wishlist.id !== itemId
 		)
@@ -172,8 +164,6 @@ class App extends Component {
 		const updatedBudget = Number(newBudget);
 		const userId = id //temporary - need to use authenticated user's id later
 		const budget = { budget: updatedBudget, id: userId }
-		console.log(budget)
-		console.log(userId)
 		fetch('http://localhost:8000/' + `api/users/${userId}`, {
 			method: 'PATCH',
 			body: JSON.stringify(budget),
@@ -189,7 +179,6 @@ class App extends Component {
 		})
 		.then(data => {
 			this.setUsers(data)
-			console.log('data:', data)
 		})
 			
 		.catch(error => this.setState({error}))
@@ -197,11 +186,7 @@ class App extends Component {
 
 	changeCheckbox = (newWishlist) => {
 		const newWishlists = [...this.state.wishlists]
-		//newWishlists.push(newWishlist) //need to update so item doesn't get duplicated
-		console.log(newWishlists)
-		console.log(newWishlist)
 		var updatedItem = Object.values(newWishlist)
-		console.log(updatedItem)
 		var res = newWishlists.map(wishlist => newWishlist.find(w => w.id === wishlist.id || wishlist))
 		
 		this.setState({
@@ -211,12 +196,6 @@ class App extends Component {
 		)
 	}
 
-	// handleCorrectLogin = (user) => {
-
-	// }
-
-	
-	
   	render() { 
 		const contextValue = {
 			users: this.state.users,
