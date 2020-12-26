@@ -18,7 +18,7 @@ class RemainingBudget extends Component {
         // }
 
         this.props.profiles.map(profile => {
-            if(profile.user_id === this.props.users[0].id){
+            if(profile.user_id === this.props.user.id){
                 this.props.wishlists.map(wishlist => {
                 if(wishlist.profile_id === profile.id && wishlist.checked === true){
                     totalSpent += wishlist.cost
@@ -28,9 +28,9 @@ class RemainingBudget extends Component {
             
         })
 
-        console.log(this.props.users)
+        console.log(this.props.user)
 
-        const totalRemaining = this.props.users[0].budget - totalSpent;
+        const totalRemaining = this.props.user.budget - totalSpent;
 
         let budgetMessage = 'Please input your budget';
         if(this.props.budget){

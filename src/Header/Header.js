@@ -15,7 +15,7 @@ export default class Header extends Component {
         <Link
           onClick={this.handleLogoutClick}
           to='/'>
-          Logout
+          Log Out
         </Link>
       </div>
     )
@@ -24,14 +24,14 @@ export default class Header extends Component {
   renderLoginLink() {
     return (
       <div className='Header__not-logged-in'>
-        <Link
+        {/* <Link
           to='/register'>
           Register
-        </Link>
+        </Link> */}
         {/* <Hyph /> */}
         <Link
           to='/login'>
-          Log in
+          Log In
         </Link>
       </div>
     )
@@ -40,14 +40,9 @@ export default class Header extends Component {
   render() {
     return (
       <nav className='Header'>
-        <h1>
-          <Link to='/budget-page'>
-            Home
-          </Link>
-        </h1>
-        {TokenService.hasAuthToken()
-          ? this.renderLogoutLink()
-          : this.renderLoginLink()}
+        <h1 className="app-name">iGift</h1>
+        {this.renderLogoutLink()}
+        {this.renderLoginLink()}
       </nav>
     )
   }

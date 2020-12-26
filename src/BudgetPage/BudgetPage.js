@@ -16,6 +16,16 @@ class BudgetPage extends Component {
         })
     }
 
+    // setUser = (userId) => {
+    //     console.log(userId)
+    //     this.context.users.map(user => {
+    //         if(user.id === userId){
+                
+    //             return user
+    //         }
+    //     })
+    // }
+
    
 
     render() { 
@@ -25,27 +35,39 @@ class BudgetPage extends Component {
             minimumFractionDigits: 2
         })
 
-        if(!this.context.users[0]){
+        if(!this.context.users){
             return null
         }
 
+
+
         console.log(this.context)
+        console.log(this.props)
         return (
             <iGiftContext.Consumer>
                 {(context) => (
-                    <div>
-                        <section className="total-budget">
-                            <h1>My Budget:</h1>
-                            <h2>{formatter.format(context.users[0].budget)}</h2>
-                            <input type="text" placeholder="New Budget" name="budget" id="budget"  onChange={(event) => this.setBudget(event)}/>
-                            <input type="button" value="Update Budget" onClick={() => context.updateBudget(this.state.budget)}/>
-                        </section>
-                        <ProfileList />
-                        <AddProfile />
-                        <section className="current-budget">
-                            <RemainingBudget budget={this.context.users[0].budget} users={context.users} profiles={context.profiles} wishlists={context.wishlists} {...this.props}/>
-                        </section>
-                    </div>
+                    context.users.map(user => {
+                        console.log(this.props.match.params.userId)
+                        if(user.id == this.props.match.params.userId){
+                            
+                            return(
+                            <div>
+                                <section className="total-budget">
+                                    <h1>My Budget:</h1>
+                                    <h2>{formatter.format(user.budget)}</h2>
+                                    <input type="text" placeholder="New Budget" name="budget" id="budget"  onChange={(event) => this.setBudget(event)}/>
+                                    <input type="button" value="Update Budget" onClick={() => context.updateBudget(this.state.budget, this.props.match.params.userId)}/>
+                                </section>
+                                <ProfileList user={user} />
+                                <AddProfile user={user} />
+                                <section className="current-budget">
+                                    <RemainingBudget budget={user.budget} user={user} profiles={context.profiles} wishlists={context.wishlists} {...this.props}/>
+                                </section>
+                            </div>
+                        ) 
+                        }
+                        
+                    })
                 )}
             </iGiftContext.Consumer>
         );

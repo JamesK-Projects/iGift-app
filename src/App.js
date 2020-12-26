@@ -4,9 +4,10 @@ import LandingPage from './LandingPage/LandingPage';
 import BudgetPage from './BudgetPage/BudgetPage';
 import ProfilePage from './ProfilePage/ProfilePage';
 import iGiftContext from './iGiftContext';
-import Login from './Login/Login';
+import LoginPage from './LoginPage/LoginPage';
 import config from './config';
 import Header from './Header/Header';
+
 
 class App extends Component {
 	constructor(props){
@@ -20,16 +21,19 @@ class App extends Component {
 	}
 
 	setUsers = users => {
+		console.log(users)
 		this.setState({
 			users,
 			error: null
 		},
 		// () => {
-		// 	this.props.history.push('/')
+		// // 	this.props.history.push('/budget-page/users/1')
 		// }
 		)
+		
 		console.log(this.state.users)
 	}
+	
 
 	setProfiles = profiles => {
 		this.setState({
@@ -51,16 +55,6 @@ class App extends Component {
 		// 	this.props.history.push('/')
 		// }
 		)
-	}
-
-	handleCheckboxChange = () => {
-		// this.state.friends.map(friend => {
-		// 	if(friend.id == friendId)
-		// })
-        // this.setState({
-		// 	friends
-		// })
-		console.log('checkbox')
 	}
 
 	getUsers = () => {
@@ -120,46 +114,107 @@ class App extends Component {
 
 	addItem = (newItem, price, profileId) => {
 		console.log(newItem, price, profileId)
-		
-		this.state.profiles.map(profile => {
-			const newWishlist = profile.wishlist
-			if(profile.id == profileId){
-				newWishlist.push({
-					name: newItem,
-					cost: price,
-					checked: true
-				})
-			}
-			this.setState({
-				wishlists: newWishlist //need to match profiles.id to wishlists.profile_id
-			})
-		})
-		console.log(this.state)
-	}
-
-
-	updateBudget = (newBudget) => {
-		const updatedBudget = Number(newBudget);
-		console.log(typeof(updatedBudget))
-		const { userId } = 1 //temporary - need to use authenticated user's id later
-		const budget = { budget: updatedBudget, id: 1 }
-		console.log(budget)
-		fetch('http://localhost:8000/' + `api/users/1`, {
-			method: 'PATCH',
-			body: JSON.stringify(budget)
+		const item = { 
+			name: newItem,
+			cost: price,
+			checked: false,
+			profile_id: profileId 
+		}
+		console.log(item)
+		fetch('http://localhost:8000/' + `api/wishlists`, {
+			method: 'POST',
+			body: JSON.stringify(item),
+			headers: {
+				'content-type': 'application/json'
+		 	}
 		})
 		.then(res => {
 			if(!res.ok){
 				throw new Error(res.status)
 			}
-			console.log(res.json())
+			return res.json() 
+		})
+		.then(data => {
+			this.setWishlists(data)
+		})
+			
+		.catch(error => this.setState({error}))
+		
+		// this.state.profiles.map(profile => {
+		// 	const newWishlist = profile.wishlist
+		// 	if(profile.id == profileId){
+		// 		newWishlist.push({
+		// 			name: newItem,
+		// 			cost: price,
+		// 			checked: true
+		// 		})
+		// 	}
+		// 	this.setState({
+		// 		wishlists: newWishlist //need to match profiles.id to wishlists.profile_id
+		// 	})
+		// })
+		console.log(this.state)
+	}
+
+	deleteItem = (itemId) => {
+		console.log(itemId)
+		const newWishlists = this.state.wishlists.filter(wishlist => 
+			wishlist.id !== itemId
+		)
+		this.setState({
+			wishlists: newWishlists
+		})
+	}
+
+
+	updateBudget = (newBudget, id) => {
+		const updatedBudget = Number(newBudget);
+		const userId = id //temporary - need to use authenticated user's id later
+		const budget = { budget: updatedBudget, id: userId }
+		console.log(budget)
+		console.log(userId)
+		fetch('http://localhost:8000/' + `api/users/${userId}`, {
+			method: 'PATCH',
+			body: JSON.stringify(budget),
+			headers: {
+				'content-type': 'application/json'
+		 	}
+		})
+		.then(res => {
+			if(!res.ok){
+				throw new Error(res.status)
+			}
 			return res.json() 
 		})
 		.then(data => {
 			this.setUsers(data)
+			console.log('data:', data)
 		})
+			
 		.catch(error => this.setState({error}))
 	}
+
+	changeCheckbox = (newWishlist) => {
+		const newWishlists = [...this.state.wishlists]
+		//newWishlists.push(newWishlist) //need to update so item doesn't get duplicated
+		console.log(newWishlists)
+		console.log(newWishlist)
+		var updatedItem = Object.values(newWishlist)
+		console.log(updatedItem)
+		var res = newWishlists.map(wishlist => newWishlist.find(w => w.id === wishlist.id || wishlist))
+		
+		this.setState({
+			wishlists: res
+		},
+		() => {}
+		)
+	}
+
+	// handleCorrectLogin = (user) => {
+
+	// }
+
+	
 	
   	render() { 
 		const contextValue = {
@@ -171,24 +226,25 @@ class App extends Component {
 			getUsers: this.getUsers,
 			getProfiles: this.getProfiles,
 			getWishlists: this.getWishlists,
-			handleCheckboxChange: this.handleCheckboxChange
+			changeCheckbox: this.changeCheckbox,
+			deleteItem: this.deleteItem,
 		}
     	return (
 			<div>
 				<iGiftContext.Provider value={contextValue}>
-					<Header />
+					<Header props={this.props}/>
 					
 					<Route 
 						exact path='/'
 						component={LandingPage}
 					/>
 					<Route 
-						path='/budget-page'
+						path='/budget-page/users/:userId'
 						component={BudgetPage}
 					/>
 					<Route 
 						path='/login'
-						component={Login}
+						component={LoginPage}
 					/>
 					<Route 
 						path='/profiles/:profileId'

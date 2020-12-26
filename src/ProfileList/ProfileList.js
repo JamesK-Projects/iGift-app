@@ -10,7 +10,7 @@ class ProfileList extends Component {
         return(
             <div>
                 {this.context.profiles.map(profile => {
-                    if(profile.user_id === this.context.users[0].id) {
+                    if(profile.user_id === this.props.user.id) {
                         return(
                             <div>
                                 <ProfileToken profile={profile} key={profile.id} />

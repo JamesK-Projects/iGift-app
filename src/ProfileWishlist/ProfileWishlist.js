@@ -19,7 +19,6 @@ class ProfileWishlist extends Component {
     } 
 
     handleItemChange = (e) => {
-        e.preventDefault();
         this.setState({
             name: e.target.value
         })
@@ -33,14 +32,14 @@ class ProfileWishlist extends Component {
     }
 
     render() { 
-        console.log(this.context)
-        
+        this.props.wishlists.sort((a,b) => a.id - b.id)
         return (
             <div>
                 <h2>Wishlist</h2>
-                {this.context.wishlists.map((item, index) => {
-                    console.log(item)
+                {this.props.wishlists.map((item, index) => {
+                    
                     if(item.profile_id === this.props.profile.id){
+                        console.log(item)
                         return(
                             <WishlistItem item={item} key={index} />
                         )

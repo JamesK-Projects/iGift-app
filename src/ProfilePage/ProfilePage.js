@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import iGiftContext from '../iGiftContext';
 import ProfileWishlist from '../ProfileWishlist/ProfileWishlist';
 import ProfilePurchased from '../ProfilePurchased/ProfilePurchased';
+import { Link } from 'react-router-dom'
 import './ProfilePage.css';
 
 class ProfilePage extends Component {
@@ -17,9 +18,14 @@ class ProfilePage extends Component {
                         console.log(profile)
                         return(
                             <div>
+                                <h1>
+                                    <Link to={`/budget-page/users/${profile.user_id}`}>
+                                        Back
+                                    </Link>
+                                </h1>
                                 <h1>{profile.name}'s Profile</h1>
                                 <div className='profile-wishlist'>
-                                    <ProfileWishlist profile={profile} key={profile.id} />
+                                    <ProfileWishlist profile={profile} wishlists={this.context.wishlists} key={profile.id} />
                                 </div>
                                 <div className='profile-total'>
                                     <ProfilePurchased profile={profile} key={profile.id} />

@@ -7,7 +7,7 @@ class AddProfile extends Component {
 
     state={
         name: '',
-        user_id: 1 //temporary - need to set based on user login info
+        user_id: this.props.user.id
     }
 
     inputNewProfile = (e) => {
@@ -16,18 +16,25 @@ class AddProfile extends Component {
         })
     }
 
-    submitAddProfile = (e) => {
-        e.preventDefault()
+    submitAddProfile = () => {
+        //e.preventDefault()
         fetch(config.API_ENDPOINT + 'api/profiles', {
             method: 'POST',
-            body: JSON.stringify(this.state)
+            body: JSON.stringify(this.state),
+            headers: {
+				'content-type': 'application/json'
+		 	}
+
         })
         .then(res => {
             if(!res.ok){
                 throw new Error(res.status)
             }
-            console.log(res.json())
+            //console.log(res.json())
             return res.json()
+        })
+        .then(data => {
+            this.context.getProfiles()
         })
         .catch(error => this.setState({error}))
     }
@@ -37,7 +44,7 @@ class AddProfile extends Component {
             <div>
                 <form className="add-profile">
                     <input type="text" placeholder="Name for new Profile" onChange={this.inputNewProfile}/>
-                    <input type="button" value="Add Profile" onClick={(e) => this.submitAddProfile}/>
+                    <input type="button" value="Add Profile" onClick={this.submitAddProfile}/>
                 </form>
             </div>
         );
