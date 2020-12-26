@@ -9,15 +9,28 @@ class RemainingBudget extends Component {
         })
 
         let totalSpent = 0;
+        console.log(this.props)
 
-        for(let i = 0; i < this.props.friends.length; i++){
-            for(let j = 0; j < this.props.friends[i].wishlist.length; j++){
-                totalSpent += this.props.friends[i].wishlist[j].cost;
+        // for(let i = 0; i < this.props.profiles.length; i++){
+        //     for(let j = 0; j < this.props.profiles[i].wishlist.length; j++){
+        //         totalSpent += this.props.profiles[i].wishlist[j].cost;
+        //     } 
+        // }
+
+        this.props.profiles.map(profile => {
+            if(profile.user_id === this.props.users[0].id){
+                this.props.wishlists.map(wishlist => {
+                if(wishlist.profile_id === profile.id && wishlist.checked === true){
+                    totalSpent += wishlist.cost
+                }
+            })
             }
             
-        }
+        })
 
-        const totalRemaining = this.props.budget - totalSpent;
+        console.log(this.props.users)
+
+        const totalRemaining = this.props.users[0].budget - totalSpent;
 
         let budgetMessage = 'Please input your budget';
         if(this.props.budget){

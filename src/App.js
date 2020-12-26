@@ -2,45 +2,128 @@ import React, { Component } from 'react';
 import { Route, Link, withRouter } from 'react-router-dom';
 import LandingPage from './LandingPage/LandingPage';
 import BudgetPage from './BudgetPage/BudgetPage';
-import FriendProfilePage from './FriendProfilePage/FriendProfilePage';
+import ProfilePage from './ProfilePage/ProfilePage';
 import iGiftContext from './iGiftContext';
+import Login from './Login/Login';
+import config from './config';
+import Header from './Header/Header';
 
 class App extends Component {
 	constructor(props){
         super(props);
         this.state = {
-            budget: 1000,
-            friends: [
-                {
-                    id: 1,
-                    name: 'Amy',
-                    wishlist: [
-                        {
-                            name: 'boots',
-                            cost: 50,
-                            checked: true
-                        },
-                    ]
-                },
-            ]
+			users: [],
+			profiles: [],
+			wishlists: [],
+			error: null
         }
 	}
 
-	// handleCheckboxChange = (event) => {
-	// 	this.state.friends.map(friend => {
-	// 		if(friend.id == friendId)
-	// 	})
-    //     this.setState({
-	// 		friends
-    //     })
-    // }
+	setUsers = users => {
+		this.setState({
+			users,
+			error: null
+		},
+		// () => {
+		// 	this.props.history.push('/')
+		// }
+		)
+		console.log(this.state.users)
+	}
 
-	addItem = (newItem, price, friendId) => {
-		console.log(newItem, price, friendId)
+	setProfiles = profiles => {
+		this.setState({
+			profiles,
+			error: null
+		},
+		// () => {
+		// 	this.props.history.push('/')
+		// }
+		)
+	}
+
+	setWishlists = wishlists => {
+		this.setState({
+			wishlists,
+			error: null
+		},
+		// () => {
+		// 	this.props.history.push('/')
+		// }
+		)
+	}
+
+	handleCheckboxChange = () => {
+		// this.state.friends.map(friend => {
+		// 	if(friend.id == friendId)
+		// })
+        // this.setState({
+		// 	friends
+		// })
+		console.log('checkbox')
+	}
+
+	getUsers = () => {
+		const url=config.API_ENDPOINT;
+		const urlUsers = url + 'api/users';
+		fetch(urlUsers, {
+			method: 'GET',
+		})
+		.then(res => {
+			if(!res.ok) {
+				throw new Error(res.status)
+			}
+			return res.json()
+		})
+		.then(this.setUsers)
+		.catch(error => this.setState({error}))
+	}
+
+	getProfiles = () => {
+		const url=config.API_ENDPOINT;
+		const urlProfiles = url + 'api/profiles';
+		fetch(urlProfiles, {
+			method: 'GET',
+		})
+		.then(res => {
+			if(!res.ok) {
+				throw new Error(res.status)
+			}
+			return res.json()
+		})
+		.then(this.setProfiles)
+		.catch(error => this.setState({error}))
+	}
+
+	getWishlists = () => {
+		const url=config.API_ENDPOINT;
+		const urlWishlists = url + 'api/wishlists';
+		fetch(urlWishlists, {
+			method: 'GET',
+		})
+		.then(res => {
+			if(!res.ok) {
+				throw new Error(res.status)
+			}
+			return res.json()
+		})
+		.then(this.setWishlists)
+		.catch(error => this.setState({error}))
+	}
+
+	componentDidMount() {
+		console.log('hello')
+		this.getUsers()
+		this.getProfiles()
+		this.getWishlists()
+	}
+
+	addItem = (newItem, price, profileId) => {
+		console.log(newItem, price, profileId)
 		
-		this.state.friends.map(friend => {
-			const newWishlist = friend.wishlist
-			if(friend.id == friendId){
+		this.state.profiles.map(profile => {
+			const newWishlist = profile.wishlist
+			if(profile.id == profileId){
 				newWishlist.push({
 					name: newItem,
 					cost: price,
@@ -48,39 +131,53 @@ class App extends Component {
 				})
 			}
 			this.setState({
-				friend: [
-					{wishlist: newWishlist}
-				]
+				wishlists: newWishlist //need to match profiles.id to wishlists.profile_id
 			})
 		})
 		console.log(this.state)
 	}
 
+
 	updateBudget = (newBudget) => {
+		console.log('hello')
 		const updatedBudget = newBudget;
-		this.setState({
-			budget: updatedBudget
-		},
-			() => {}	
-		)
+		const { userId } = 1 //temporary - need to use authenticated user's id
+		const budget = { budget: updatedBudget, id: 1 }
+		console.log(budget)
+		fetch('http://localhost:8000/' + `api/users/1`, {
+			method: 'PATCH',
+			body: JSON.stringify(budget)
+		})
+		.then(res => {
+			if(!res.ok){
+				throw new Error(res.status)
+			}
+			console.log(res.json())
+			return res.json() 
+		})
+		.then(data => {
+			this.setUsers(data)
+		})
+		.catch(error => this.setState({error}))
 	}
 	
   	render() { 
 		const contextValue = {
-			budget: this.state.budget,
-			friends: this.state.friends,
+			users: this.state.users,
+			profiles: this.state.profiles,
+			wishlists: this.state.wishlists,
 			updateBudget: this.updateBudget,
 			addItem: this.addItem,
+			getUsers: this.getUsers,
+			getProfiles: this.getProfiles,
+			getWishlists: this.getWishlists,
 			handleCheckboxChange: this.handleCheckboxChange
 		}
     	return (
 			<div>
 				<iGiftContext.Provider value={contextValue}>
-					<nav>
-						<Link to='/budget-page'>
-							<p>Home</p>
-						</Link>
-					</nav>
+					<Header />
+					
 					<Route 
 						exact path='/'
 						component={LandingPage}
@@ -90,8 +187,12 @@ class App extends Component {
 						component={BudgetPage}
 					/>
 					<Route 
-						path='/profile/:profileId'
-						component={FriendProfilePage}
+						path='/login'
+						component={Login}
+					/>
+					<Route 
+						path='/profiles/:profileId'
+						component={ProfilePage}
 					/>
 				</iGiftContext.Provider>
 				<footer>

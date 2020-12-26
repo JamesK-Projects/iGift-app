@@ -2,7 +2,7 @@ header{
     padding: 30px 30px;
 }
 
-.friend-token{
+.profile-token{
     display: flex;
     justify-content: space-between;
     background-color: lightgrey;

@@ -2,20 +2,20 @@ import React, { Component } from 'react';
 import iGiftContext from '../iGiftContext';
 import WishlistItem from '../WishlistItem/WishlistItem';
 
-class FriendWishlist extends Component {
+class ProfileWishlist extends Component {
     static contextType = iGiftContext;
 
     constructor(props) {
         super(props);
         this.state = {
             name: '',
-            price: ''
+            cost: ''
         };
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.context.addItem(this.state.name, this.state.price, this.props.friend.id)
+        this.context.addItem(this.state.name, this.state.cost, this.props.profile.id)
     } 
 
     handleItemChange = (e) => {
@@ -28,7 +28,7 @@ class FriendWishlist extends Component {
     handlePriceChange = (e) => {
         e.preventDefault();
         this.setState({
-            price: Number(e.target.value)
+            cost: Number(e.target.value)
         })
     }
 
@@ -38,15 +38,18 @@ class FriendWishlist extends Component {
         return (
             <div>
                 <h2>Wishlist</h2>
-                {this.props.friend.wishlist.map((item, index) => {
+                {this.context.wishlists.map((item, index) => {
                     console.log(item)
-                    return(
-                        <WishlistItem item={item} key={index} />
-                    )
+                    if(item.profile_id === this.props.profile.id){
+                        return(
+                            <WishlistItem item={item} key={index} />
+                        )
+                    }
+                    
                 })}
                 <form onSubmit={this.handleSubmit}>
                     <input type="text" value={this.state.name} onChange={this.handleItemChange} placeholder="Item Name" />
-                    <input type="text" value={this.state.price} onChange={this.handlePriceChange} placeholder="Price" />
+                    <input type="text" value={this.state.cost} onChange={this.handlePriceChange} placeholder="Price" />
                     <input type="submit" value="Add Item" />
                 </form>
             </div>
@@ -55,4 +58,4 @@ class FriendWishlist extends Component {
     }
 }
  
-export default FriendWishlist;
+export default ProfileWishlist;

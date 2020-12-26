@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+//import config from '..config/';
 
 class CreateAccount extends Component {
     render() { 
@@ -10,12 +11,12 @@ class CreateAccount extends Component {
                     </header>
                     <form className="signup-form">
                         <div className="form-item">
-                            <label htmlFor="first-name">First Name</label>
-                            <input placeholder="First Name" type="text" name="first-name" id="first-name" />
+                            <label htmlFor="name">Name</label>
+                            <input placeholder="Name" type="text" name="name" id="name" />
                         </div>
                         <div className="form-item">
-                            <label htmlFor="last-name">Last Name</label>
-                            <input placeholder="Last Name" type="text" name="last-name" id="last-name" />
+                            <label htmlFor="username">Username</label>
+                            <input placeholder="Username" type="text" name="username" id="username" />
                         </div>
                         <div className="form-item">
                             <label htmlFor="email">Email</label>

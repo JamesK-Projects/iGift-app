@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CreateAccount from '../CreateAccount/CreateAccount';
+import Login from '../Login/Login';
 import './LandingPage.css';
 
 class LandingPage extends Component {
@@ -10,11 +11,11 @@ class LandingPage extends Component {
                     <h1 className="app-name">iGift</h1>
                     <h2 className="app-slogan">Gift Smarter.</h2>
                 </header>
-                <section className="friend-profile-section">
+                <section className="profile-section">
                     <header>
                         <h3 className="section-header">Organize Your Gift-Giving</h3>
                     </header>
-                    <p>[placeholder for screenshot of friend profile]</p>
+                    <p>[placeholder for screenshot of profile]</p>
                     <p>Create personalized profiles for your friends and family to keep track of birthdays, potential gift ideas, 
                     and gifts given.</p>
                 </section>

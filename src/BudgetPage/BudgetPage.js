@@ -1,13 +1,34 @@
 import React, { Component } from 'react';
-import FriendList from '../FriendList/FriendList';
+import ProfileList from '../ProfileList/ProfileList';
 import iGiftContext from '../iGiftContext';
 import RemainingBudget from '../RemainingBudget/RemainingBudget';
-import AddFriend from '../AddFriend/AddFriend';
+import AddProfile from '../AddProfile/AddProfile';
 
 class BudgetPage extends Component {
     static contextType = iGiftContext;
+    state = {
+        budget: 0
+    }
+
+    setBudget = (event) => {
+        this.setState({
+			budget: event.target.value
+        })
+    }
+
+   
 
     render() { 
+        const formatter = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD',
+            minimumFractionDigits: 2
+        })
+
+        if(!this.context.users[0]){
+            return null
+        }
+
         console.log(this.context)
         return (
             <iGiftContext.Consumer>
@@ -15,14 +36,14 @@ class BudgetPage extends Component {
                     <div>
                         <section className="total-budget">
                             <h1>My Budget:</h1>
-                            <h2>$1000.00</h2>
-                            {/* <input type="text" name="budget" id="budget" onChange={e => context.updateBudget(e.target.value)} /><br /> */}
-                            <input type="button" value="Update Budget" />
+                            <h2>{formatter.format(context.users[0].budget)}</h2>
+                            <input type="text" placeholder="New Budget" name="budget" id="budget"  onChange={(event) => this.setBudget(event)}/>
+                            <input type="button" value="Update Budget" onClick={() => context.updateBudget(this.state.budget)}/>
                         </section>
-                        <FriendList friends={this.context.friends}/>
-                        <AddFriend />
+                        <ProfileList />
+                        <AddProfile />
                         <section className="current-budget">
-                            <RemainingBudget budget={this.context.budget} friends={this.context.friends} {...this.props}/>
+                            <RemainingBudget budget={this.context.users[0].budget} users={context.users} profiles={context.profiles} wishlists={context.wishlists} {...this.props}/>
                         </section>
                     </div>
                 )}
