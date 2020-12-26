@@ -20,10 +20,10 @@ class ProfilePurchasedTotal extends Component {
             }
             
         })
-        
+
         return (
             <div>
-                <h2>Total Spent on {this.props.profile.name}: {formatter.format(purchasedTotal)}</h2>
+                <h2 className="total-spent">Total Spent on {this.props.profile.name}: {formatter.format(purchasedTotal)}</h2>
             </div>
         );
     }

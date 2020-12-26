@@ -1,0 +1,8 @@
+.total-budget>h2{
+    font-family: 'DM Serif Display', serif;
+    color: #34344A;
+}
+
+.total-budget>.textbox{
+    margin-right: 5px;
+}

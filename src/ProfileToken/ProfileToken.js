@@ -24,11 +24,11 @@ class ProfileToken extends Component {
             <div>
                 <Link to={`/profiles/${this.props.profile.id}`}>
                     <div className="profile-token">
-                        <div className="profile-name">
-                            <h2>{this.props.profile.name}</h2>
+                        <div className="profile-token-name">
+                            <h3>{this.props.profile.name}</h3>
                         </div>
-                        <div className="total-spent">
-                            <h2>Spent: {formatter.format(total)}</h2>
+                        <div className="token-total-spent">
+                            <h3>Spent: {formatter.format(total)}</h3>
                         </div>
                     </div>
                 </Link>

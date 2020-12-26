@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import iGiftContext from '../iGiftContext';
 import WishlistItem from '../WishlistItem/WishlistItem';
+import '../ProfileWishlist/ProfileWishlist.css';
 
 class ProfileWishlist extends Component {
     static contextType = iGiftContext;
@@ -39,7 +40,7 @@ class ProfileWishlist extends Component {
         this.props.wishlists.sort((a,b) => a.id - b.id)
         return (
             <div>
-                <h2>Wishlist</h2>
+                <h2 className="section-header">Wishlist</h2>
                 {this.props.wishlists.map((item, index) => {
                     
                     if(item.profile_id === this.props.profile.id){
@@ -50,12 +51,11 @@ class ProfileWishlist extends Component {
                     
                 })}
                 <form onSubmit={this.handleSubmit}>
-                    <input type="text" value={this.state.name} onChange={this.handleItemChange} placeholder="Item Name" />
-                    <input type="text" value={this.state.cost} onChange={this.handlePriceChange} placeholder="Price" />
-                    <input type="submit" value="Add Item" />
+                    <input type="text" value={this.state.name} onChange={this.handleItemChange} placeholder="Item Name" className="new-item-name"/>
+                    <input type="text" value={this.state.cost} onChange={this.handlePriceChange} placeholder="Price" className="new-item-price"/>
+                    <input type="submit" value="Add Item" className="new-item-submit"/>
                 </form>
             </div>
-            //<input type="text" name="budget" id="budget" onChange={e => context.updateBudget(e.target.value)} />
         );
     }
 }

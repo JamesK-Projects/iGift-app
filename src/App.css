@@ -2,3 +2,75 @@
     background-color: rgb(255, 202, 202);
     border-radius: 3px;
 } */
+
+.main-container {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.footer {
+    position:relative;
+    bottom: 0;
+    height: 20px;
+    background-color:#F0F757;
+    padding: 10px 10px;
+}
+
+label {
+    font-family: 'Work Sans', sans-serif;
+}
+
+input {
+    border-width: 1px;
+    border-radius: 5px;
+    border-style:solid;
+    height: 25px;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 15px;
+}
+
+.button{
+    border-style: solid;
+    background-color: #34344A;
+    height: 25px;
+    color: white;
+    font-weight: bold;
+}
+
+.button:hover{
+    background-color:  #70517e;
+    cursor: pointer;
+}
+
+button{
+    font-weight:bold;
+    background-color:  #34344A;
+    border-width: 0;
+    border-radius: 3px;
+    color: white;
+    height: 25px;
+}
+
+.links > a{
+    background-color:  #f7d8c2;
+    border-style: solid;
+    text-decoration: none;
+    padding: 3px;
+    border-width: 0;
+    border-radius: 3px;
+    color: #b94e64;
+    font-weight:80;
+    margin-left: 5px;
+    width: auto;
+}
+
+button:hover{
+    background-color:  #70517e;
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none;
+}
+

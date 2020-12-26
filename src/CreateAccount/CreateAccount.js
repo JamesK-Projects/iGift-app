@@ -37,6 +37,24 @@ class CreateAccount extends Component {
         })
     }
 
+    validateInputs = (e) => {
+        if(this.state.name == '' || this.state.username == '' || this.state.email == '' || this.state.password == ''){
+            window.alert('Please fill out all fields')
+        } else this.confirmUniqueUsername(e)
+    }
+
+    confirmUniqueUsername = (e) => {
+        var uniqueUsername = true;
+        this.context.users.map(user => {
+            if(user.username === this.state.username){
+                uniqueUsername = false;
+            }
+        })
+        if(uniqueUsername == false) {
+            window.alert('Username is taken, please choose something else')
+        } else this.handleSubmit(e)
+    }
+
     handleSubmit = (e) => {
         e.preventDefault()
         fetch(config.API_ENDPOINT + 'api/users', {
@@ -64,6 +82,9 @@ class CreateAccount extends Component {
                 budget: 0
             })
         })
+        .then(() => {
+            window.alert('Account created successfully!')
+        })
         .catch(error => this.setState({error}))
         
     }
@@ -76,7 +97,7 @@ class CreateAccount extends Component {
                     <header>
                         <h3 className="section-header">Create A New Account</h3>
                     </header>
-                    <form className="signup-form" onSubmit={e => this.handleSubmit(e)}>
+                    <form className="signup-form" onSubmit={e => this.validateInputs(e)}>
                         <div className="form-item">
                             <label htmlFor="name">Name</label>
                             <input placeholder="Name" type="text" name="create-name" id="create-name" value={this.state.name} onChange={e => this.handleNameInput(e)}/>

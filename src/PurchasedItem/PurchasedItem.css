@@ -1,10 +1,12 @@
 .purchased-item{
     display: flex;
     justify-content: space-around;
-    background-color: lightgray;
+    background-color: #34344A;
+    color: white;
     text-align: center;
-    margin: 30px;
+    margin: 20px;
     border-radius: 20px;
+    font-family: 'Work Sans', sans-serif;
 }
 
 ul{

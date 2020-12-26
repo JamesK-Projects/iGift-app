@@ -57,9 +57,14 @@ class WishlistItem extends Component {
         })
 
         return (     
-            <div>
-                <input type='checkbox' checked={this.props.item.checked} onChange={e => this.handleCheckboxChange(e.target.checked, this.props.item)} />
-                <label htmlFor={this.props.item.name}>{this.props.item.name}    {formatter.format(this.props.item.cost)}</label>
+            <div className='wishlist-item'>
+                <div className='checkbox-and-name'>
+                    <input type='checkbox' checked={this.props.item.checked} onChange={e => this.handleCheckboxChange(e.target.checked, this.props.item)} />
+                    <label htmlFor={this.props.item.name} className='item-name'>{this.props.item.name}</label>
+                </div>
+                <div className='cost'>  
+                    <label htmlFor={this.props.item.name} className='item-cost'>{formatter.format(this.props.item.cost)}</label>
+                </div>    
                 <button className="remove-button" onClick={() => this.deleteItemRequest(this.props.item.id, this.context.deleteItem)}>Remove</button>
             </div>
         );

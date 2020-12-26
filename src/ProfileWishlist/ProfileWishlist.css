@@ -1,0 +1,25 @@
+input{
+    margin-right: 5px;
+}
+
+input.new-item-name{
+    width: 40%;
+}
+
+input.new-item-price{
+    width: 20%;
+}
+
+input.new-item-submit{
+    background-color: #F0F757;
+    color: #f76582;
+    border: 0;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: bold;
+    height: 22px;
+}
+
+input.new-item-submit:hover{
+    background-color:  #fdd770;
+    cursor: pointer;
+}

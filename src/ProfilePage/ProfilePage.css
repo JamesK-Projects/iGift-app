@@ -1,14 +1,76 @@
+.profile-name{
+    font-family: 'DM Serif Display', serif;
+    color: #34344A; 
+}
+
+.back-button>a{
+    text-decoration: none;
+    background-color: #678aa7;
+    color: white;
+    font-family: 'DM Serif Display', serif;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.back-button>a:hover{
+    background-color: #70517e;
+}
+
+h4.back-button{
+    text-align: left;
+    margin-left: 20px;
+}
+
 .profile-wishlist, .profile-total{
-    background-color: grey;
-    margin: 30px 10% 30px 10%;
-    padding: 20px;
+    background-color: #678aa7;
+    color: white;
+    margin: 20px;
+    padding: 10px;
     border-radius: 20px;
 }
 
-label{
+/* label{
     font-size: larger;
-}
+} */
 
 input{
     margin-bottom: 20px;
+}
+
+.wishlist-item{
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+    text-align: left;
+}
+
+.checkbox-and-name{
+    flex: 2;
+    height: 25px;
+    margin-bottom: 15px;
+}
+
+.cost{
+    text-align: right;
+}
+
+.checkbox-and-name>input{
+    margin: 0;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.checkbox-and-name>label{
+    padding-top: auto;
+    padding-bottom: auto;
+}
+
+button.remove-button{
+    flex: 1;
+    margin-left: 0;
+}
+
+.total-spent{
+    color: #34344A;
+    font-family: 'DM Serif Display', serif;
 }

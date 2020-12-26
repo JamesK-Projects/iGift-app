@@ -14,7 +14,7 @@ class LandingPage extends Component {
                 </header>
                 <section className="profile-section">
                     <header>
-                        <h3 className="section-header">Organize Your Gift-Giving</h3>
+                        <h3 className="section-header">Organize Your Gift-Giving!</h3>
                     </header>
                     <p>[placeholder for screenshot of profile]</p>
                     <p>Create personalized profiles for your friends and family to keep track of birthdays, potential gift ideas, 
@@ -22,7 +22,7 @@ class LandingPage extends Component {
                 </section>
                 <section className="budget-section">
                     <header>
-                        <h3 className="section-header">Set Your Budget</h3>
+                        <h3 className="section-header">Set Your Budget!</h3>
                     </header>
                     <p>[placeholder for screenshot of budget page]</p>
                     <p>During the 2019 holiday season, 44% of American consumers went into debt. iGift helps you to be smart 

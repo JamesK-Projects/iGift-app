@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import iGiftContext from '../iGiftContext';
 import config from '../config';
+import '../AddProfile/AddProfile.css'
 
 class AddProfile extends Component {
     static contextType = iGiftContext;
@@ -17,7 +18,6 @@ class AddProfile extends Component {
     }
 
     submitAddProfile = () => {
-        //e.preventDefault()
         fetch(config.API_ENDPOINT + 'api/profiles', {
             method: 'POST',
             body: JSON.stringify(this.state),
@@ -46,8 +46,8 @@ class AddProfile extends Component {
         return (
             <div>
                 <form className="add-profile">
-                    <input type="text" placeholder="Name for new Profile" value={this.state.name}onChange={this.inputNewProfile}/>
-                    <input type="button" value="Add Profile" onClick={this.submitAddProfile}/>
+                    <input type="text" placeholder="Name for new Profile" className="textbox" value={this.state.name}onChange={this.inputNewProfile}/>
+                    <input type="button" value="Add Profile" className="button" onClick={this.submitAddProfile}/>
                 </form>
             </div>
         );

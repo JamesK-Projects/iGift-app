@@ -196,32 +196,34 @@ class App extends Component {
 			deleteItem: this.deleteItem,
 		}
     	return (
-			<div>
-				<iGiftContext.Provider value={contextValue}>
-					<Route 
-						path='/'
-						component={Header}
-					// <Header props={this.props}
-					/>
-					
-					<Route 
-						exact path='/'
-						component={LandingPage}
-					/>
-					<Route 
-						path='/budget-page/users/:userId'
-						component={BudgetPage}
-					/>
-					<Route 
-						path='/login'
-						component={LoginPage}
-					/>
-					<Route 
-						path='/profiles/:profileId'
-						component={ProfilePage}
-					/>
-				</iGiftContext.Provider>
-				<footer>
+			<div className="main-container">
+				<div className="routes">
+					<iGiftContext.Provider value={contextValue}>
+						<Route 
+							path='/'
+							component={Header}
+						// <Header props={this.props}
+						/>
+						
+						<Route 
+							exact path='/'
+							component={LandingPage}
+						/>
+						<Route 
+							path='/budget-page/users/:userId'
+							component={BudgetPage}
+						/>
+						<Route 
+							path='/login'
+							component={LoginPage}
+						/>
+						<Route 
+							path='/profiles/:profileId'
+							component={ProfilePage}
+						/>
+					</iGiftContext.Provider>
+				</div>
+				<footer className="footer">
         			James K Projects
     			</footer>
 			</div>

@@ -15,12 +15,12 @@ class ProfilePage extends Component {
                     if(this.props.match.params.profileId == profile.id){
                         return(
                             <div key={profile.id}>
-                                <h1>
+                                <h4 className="back-button">
                                     <Link to={`/budget-page/users/${profile.user_id}`}>
                                         Back
                                     </Link>
-                                </h1>
-                                <h1>{profile.name}'s Profile</h1>
+                                </h4>
+                                <h2 className="profile-name">{profile.name}'s Profile</h2>
                                 <div className='profile-wishlist'>
                                     <ProfileWishlist profile={profile} wishlists={this.context.wishlists} />
                                 </div>

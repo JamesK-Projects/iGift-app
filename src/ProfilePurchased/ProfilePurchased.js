@@ -9,7 +9,7 @@ class ProfilePurchased extends Component {
     render() { 
         return (
             <div>
-                <h2>Gifts Purchased</h2>
+                <h2 className="section-header">Gifts Purchased</h2>
                 <ul>
                     {this.context.wishlists.map((item, index) => {
                         if(item.profile_id === this.props.profile.id){

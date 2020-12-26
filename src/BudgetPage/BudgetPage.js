@@ -3,6 +3,7 @@ import ProfileList from '../ProfileList/ProfileList';
 import iGiftContext from '../iGiftContext';
 import RemainingBudget from '../RemainingBudget/RemainingBudget';
 import AddProfile from '../AddProfile/AddProfile';
+import '../BudgetPage/BudgetPage.css'
 
 class BudgetPage extends Component {
     static contextType = iGiftContext;
@@ -43,10 +44,10 @@ class BudgetPage extends Component {
                             return(
                             <div key={user.id}>
                                 <section className="total-budget">
-                                    <h1>My Budget:</h1>
+                                    <h2>My Budget:</h2>
                                     <h2>{formatter.format(user.budget)}</h2>
-                                    <input type="text" placeholder="New Budget" name="budget" id="budget" value={this.state.budget} onChange={(event) => this.setBudget(event)}/>
-                                    <input type="button" value="Update Budget" onClick={() => this.handleUpdateBudget()}/>
+                                    <input type="text" placeholder="New Budget" name="budget" id="budget" className="textbox" value={this.state.budget} onChange={(event) => this.setBudget(event)}/>
+                                    <input type="button" value="Update Budget" className="button" onClick={() => this.handleUpdateBudget()}/>
                                 </section>
                                 <ProfileList user={user}/>
                                 <AddProfile user={user}/>

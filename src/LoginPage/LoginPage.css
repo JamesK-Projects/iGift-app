@@ -1,4 +1,12 @@
 .login-section{
-    margin-top: 40px;
-    margin-bottom: 40px;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    color: #34344A;
+}
+
+.create-account{
+    background-color: #678aa7;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    color: white;
 }

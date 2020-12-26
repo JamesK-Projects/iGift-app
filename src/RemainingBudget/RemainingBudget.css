@@ -1,0 +1,12 @@
+.remaining-budget{
+    font-family: 'DM Serif Display', serif;
+    color: #34344A;
+}
+
+.over{
+    color: red;
+}
+
+.under{
+    color: green;
+}

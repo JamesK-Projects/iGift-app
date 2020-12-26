@@ -12,12 +12,17 @@ class LoginPage extends Component {
 
     checkCredentials = (e) => {
         e.preventDefault()
+        var correctCredentials = false;
+        var correctUser = '';
         this.context.users.map(user => {
-            if (user.username == this.state.username && user.password == this.state.password){
-                this.props.history.push(`/budget-page/users/${user.id}`)
-            }
-            
+            if (user.username === this.state.username && user.password === this.state.password){
+                correctCredentials = true;
+                correctUser = user;
+            } 
         })
+        if (correctCredentials == true){
+            this.props.history.push(`/budget-page/users/${correctUser.id}`)
+        } else window.alert('Username and/or Password are incorrect. Please try again')
     }
 
     handleUsernameInput = (e) => {
