@@ -12,7 +12,7 @@ import './App.css'
 
 class App extends Component {
 	constructor(props){
-        //super(props);
+        super(props);
         this.state = {
 			users: [],
 			profiles: [],
@@ -230,4 +230,4 @@ class App extends Component {
   	}
 }
 
-export default App;
+export default withRouter(App);
