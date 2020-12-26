@@ -199,7 +199,11 @@ class App extends Component {
     	return (
 			<div>
 				<iGiftContext.Provider value={contextValue}>
-					<Header props={this.props}/>
+					<Route 
+						path='/'
+						component={Header}
+					// <Header props={this.props}
+					/>
 					
 					<Route 
 						exact path='/'
