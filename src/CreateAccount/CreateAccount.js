@@ -56,7 +56,13 @@ class CreateAccount extends Component {
             this.context.getUsers()
         })
         .then(() => {
-            this.props.history.push('/login')
+            this.setState({
+                name: '',
+                username: '',
+                email: '',
+                password: '',
+                budget: 0
+            })
         })
         .catch(error => this.setState({error}))
         
@@ -73,19 +79,19 @@ class CreateAccount extends Component {
                     <form className="signup-form" onSubmit={e => this.handleSubmit(e)}>
                         <div className="form-item">
                             <label htmlFor="name">Name</label>
-                            <input placeholder="Name" type="text" name="create-name" id="create-name" onChange={e => this.handleNameInput(e)}/>
+                            <input placeholder="Name" type="text" name="create-name" id="create-name" value={this.state.name} onChange={e => this.handleNameInput(e)}/>
                         </div>
                         <div className="form-item">
                             <label htmlFor="username">Username</label>
-                            <input placeholder="Username" type="text" name="create-username" id="create-username" onChange={e => this.handleUsernameInput(e)}/>
+                            <input placeholder="Username" type="text" name="create-username" id="create-username" value={this.state.username} onChange={e => this.handleUsernameInput(e)}/>
                         </div>
                         <div className="form-item">
                             <label htmlFor="email">Email</label>
-                            <input placeholder="Email" type="text" name="create-email" id="create-email" onChange={e => this.handleEmailInput(e)}/>
+                            <input placeholder="Email" type="text" name="create-email" id="create-email" value={this.state.email} onChange={e => this.handleEmailInput(e)}/>
                         </div>
                         <div className="form-item">
                             <label htmlFor="password">Password</label>
-                            <input placeholder="Password" type="password" name="create-password" id="create-password" onChange={e => this.handlePasswordInput(e)}/>
+                            <input placeholder="Password" type="password" name="create-password" id="create-password" value={this.state.password} onChange={e => this.handlePasswordInput(e)}/>
                         </div>
                         <button type="submit" className="submit-button">Create Account</button>
                     </form>

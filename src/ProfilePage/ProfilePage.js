@@ -14,7 +14,7 @@ class ProfilePage extends Component {
                 {this.context.profiles.map((profile) => {
                     if(this.props.match.params.profileId == profile.id){
                         return(
-                            <div>
+                            <div key={profile.id}>
                                 <h1>
                                     <Link to={`/budget-page/users/${profile.user_id}`}>
                                         Back
@@ -22,10 +22,10 @@ class ProfilePage extends Component {
                                 </h1>
                                 <h1>{profile.name}'s Profile</h1>
                                 <div className='profile-wishlist'>
-                                    <ProfileWishlist profile={profile} wishlists={this.context.wishlists} key={profile.id} />
+                                    <ProfileWishlist profile={profile} wishlists={this.context.wishlists} />
                                 </div>
                                 <div className='profile-total'>
-                                    <ProfilePurchased profile={profile} key={profile.id} />
+                                    <ProfilePurchased profile={profile} />
                                 </div>
                             </div>
                         )

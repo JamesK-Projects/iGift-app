@@ -16,6 +16,10 @@ class ProfileWishlist extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         this.context.addItem(this.state.name, this.state.cost, this.props.profile.id)
+        this.setState({
+            name: '',
+            cost: ''
+        })
     } 
 
     handleItemChange = (e) => {

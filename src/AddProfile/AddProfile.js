@@ -34,6 +34,11 @@ class AddProfile extends Component {
         .then(data => {
             this.context.getProfiles()
         })
+        .then(() => {
+            this.setState({
+                name: ''
+            })
+        })
         .catch(error => this.setState({error}))
     }
 
@@ -41,7 +46,7 @@ class AddProfile extends Component {
         return (
             <div>
                 <form className="add-profile">
-                    <input type="text" placeholder="Name for new Profile" onChange={this.inputNewProfile}/>
+                    <input type="text" placeholder="Name for new Profile" value={this.state.name}onChange={this.inputNewProfile}/>
                     <input type="button" value="Add Profile" onClick={this.submitAddProfile}/>
                 </form>
             </div>
