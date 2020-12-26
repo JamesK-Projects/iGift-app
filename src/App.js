@@ -7,6 +7,7 @@ import iGiftContext from './iGiftContext';
 import LoginPage from './LoginPage/LoginPage';
 import config from './config';
 import Header from './Header/Header';
+import './App.css'
 
 
 class App extends Component {

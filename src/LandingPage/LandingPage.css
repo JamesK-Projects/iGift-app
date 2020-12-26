@@ -1,10 +1,38 @@
+.app-name{
+    font-size: xx-large;
+    font-family: 'Ribeye', cursive;
+    color: rgb(255, 115, 138);
+}
+
+.Header > a{
+    text-decoration: none;
+    color: darkolivegreen;
+    border-style: solid;
+    margin: 10px;
+    padding: 3px;
+    border-width: 1px;
+    border-radius: 3px;
+    background-color:  rgb(215, 245, 219);
+    font-weight:600;
+}
+
+.Header>a:hover{
+    background-color:  rgb(120, 218, 129);
+}
+
+
+.app-slogan, .section-header{
+    font-family: 'Pacifico', cursive;
+    color: rgb(43, 112, 64);
+}
+
 body{
     text-align: center;
     margin: 0;
 }
 
 nav{
-    background-color: lightgray;
+    background-color: rgb(178, 241, 187);
     padding: 20px 20px;
 }
 
