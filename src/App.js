@@ -173,7 +173,6 @@ class App extends Component {
 
 	changeCheckbox = (newWishlist) => {
 		const newWishlists = [...this.state.wishlists]
-		var updatedItem = Object.values(newWishlist)
 		var res = newWishlists.map(wishlist => newWishlist.find(w => w.id === wishlist.id || wishlist))
 		
 		this.setState({
