@@ -28,7 +28,7 @@ class LandingPage extends Component {
                     <p>During the 2019 holiday season, 44% of American consumers went into debt. iGift helps you to be smart 
                     about your gift-spending by allowing you to set your budget and track it as you spend.</p>
                 </section>
-                <CreateAccount />
+                
             </div>
         );
     }

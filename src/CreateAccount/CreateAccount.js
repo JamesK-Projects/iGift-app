@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import config from '../config';
-import '../CreateAccount/CreateAccount.css'
+import '../CreateAccount/CreateAccount.css';
+import iGiftContext from '../iGiftContext';
 
 class CreateAccount extends Component {
+    static contextType = iGiftContext;
     state = {
         name: '',
         username: '',
@@ -50,7 +52,14 @@ class CreateAccount extends Component {
             }
             return res.json()
         })
+        .then(() => {
+            this.context.getUsers()
+        })
+        .then(() => {
+            this.props.history.push('/login')
+        })
         .catch(error => this.setState({error}))
+        
     }
 
 
@@ -59,24 +68,24 @@ class CreateAccount extends Component {
             <div>
                 <section className="create-account-section">
                     <header>
-                        <h3 className="section-header">Create Your Account</h3>
+                        <h3 className="section-header">Create A New Account</h3>
                     </header>
                     <form className="signup-form" onSubmit={e => this.handleSubmit(e)}>
                         <div className="form-item">
                             <label htmlFor="name">Name</label>
-                            <input placeholder="Name" type="text" name="name" id="name" onChange={e => this.handleNameInput(e)}/>
+                            <input placeholder="Name" type="text" name="create-name" id="create-name" onChange={e => this.handleNameInput(e)}/>
                         </div>
                         <div className="form-item">
                             <label htmlFor="username">Username</label>
-                            <input placeholder="Username" type="text" name="username" id="username" onChange={e => this.handleUsernameInput(e)}/>
+                            <input placeholder="Username" type="text" name="create-username" id="create-username" onChange={e => this.handleUsernameInput(e)}/>
                         </div>
                         <div className="form-item">
                             <label htmlFor="email">Email</label>
-                            <input placeholder="Email" type="text" name="email" id="email" onChange={e => this.handleEmailInput(e)}/>
+                            <input placeholder="Email" type="text" name="create-email" id="create-email" onChange={e => this.handleEmailInput(e)}/>
                         </div>
                         <div className="form-item">
                             <label htmlFor="password">Password</label>
-                            <input placeholder="Password" type="password" name="password" id="password" onChange={e => this.handlePasswordInput(e)}/>
+                            <input placeholder="Password" type="password" name="create-password" id="create-password" onChange={e => this.handlePasswordInput(e)}/>
                         </div>
                         <button type="submit" className="submit-button">Create Account</button>
                     </form>

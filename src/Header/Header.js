@@ -47,8 +47,9 @@ export default class Header extends Component {
         {/* {this.renderLogoutLink()}
         {this.renderLoginLink()} */}
 				<div className='links'>
-					<Link to='/login'>Log In</Link>
+					<Link to='/login'>Log In/Create Account</Link>
 					<Link to='/'>Log Out</Link>
+					
 				</div>
       </nav>
     )

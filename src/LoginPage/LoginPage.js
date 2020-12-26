@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import iGiftContext from '../iGiftContext';
+import CreateAccount from '../CreateAccount/CreateAccount';
+import '../LoginPage/LoginPage.css';
 
 class LoginPage extends Component {
     static contextType = iGiftContext;
@@ -33,17 +35,26 @@ class LoginPage extends Component {
     render() { 
         return (
             <div>
-                <form className="login-form" onSubmit={(e) => this.checkCredentials(e)}>
-                    <div className="form-item">
-                            <label htmlFor="username">Username</label>
-                            <input placeholder="Username" type="text" name="username" id="username" onChange={e => this.handleUsernameInput(e)}/>
-                    </div>
-                    <div className="form-item">
-                            <label htmlFor="password">Password</label>
-                            <input placeholder="Password" type="password" name="password" id="password" onChange={e => this.handlePasswordInput(e)}/>
-                    </div>
-                    <button>Log In</button>
-                </form>
+                <section className="login-section">
+                    <form className="login-form" onSubmit={(e) => this.checkCredentials(e)}>
+                        <div>
+                            <h3 className='section-header'>Log In to an Existing Account</h3>
+                            
+                        </div>
+                        <div className="form-item">
+                                <label htmlFor="username">Username</label>
+                                <input placeholder="Username" type="text" name="username" id="username" onChange={e => this.handleUsernameInput(e)}/>
+                        </div>
+                        <div className="form-item">
+                                <label htmlFor="password">Password</label>
+                                <input placeholder="Password" type="password" name="password" id="password" onChange={e => this.handlePasswordInput(e)}/>
+                        </div>
+                        <button>Log In</button>
+                    </form>
+                </section>
+                <section className="create-account">
+                    <CreateAccount />
+                </section>
             </div>
         );
     }

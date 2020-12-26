@@ -54,6 +54,10 @@
     font-family: 'Lato', sans-serif;
 }
 
+.app-slogan, .section-header{
+    padding: 30px 30px;
+}
+
 body{
     text-align: center;
     margin: 0;
@@ -64,9 +68,7 @@ nav{
     padding: 20px 10px;
 }
 
-header{
-    padding: 30px 30px;
-}
+
 
 .profile-section, .create-account-section{
     background-color: rgb(251, 255, 232);
