@@ -1,2 +1,0 @@
-(this["webpackJsonpigift-app"]=this["webpackJsonpigift-app"]||[]).push([[0],{10:function(e,t,c){"use strict";c.r(t);var s=c(0),n=(c(2),c(3)),r=c.n(n);c(9);var a=function(){return Object(s.jsx)("div",{className:"App",children:Object(s.jsx)("header",{className:"App-header",children:Object(s.jsxs)("p",{children:["Edit ",Object(s.jsx)("code",{children:"src/App.js"})," and save to reload."]})})})};r.a.render(Object(s.jsx)(a,{}),document.getElementById("root"))},9:function(e,t,c){}},[[10,1,2]]]);
-//# sourceMappingURL=main.6d9a5bc9.chunk.js.map

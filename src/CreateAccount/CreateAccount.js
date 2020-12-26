@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import config from '../config';
+import '../CreateAccount/CreateAccount.css'
 
 class CreateAccount extends Component {
     state = {
@@ -35,7 +36,7 @@ class CreateAccount extends Component {
     }
 
     handleSubmit = (e) => {
-        //e.preventDefault()
+        e.preventDefault()
         fetch(config.API_ENDPOINT + 'api/users', {
             method: 'POST',
             body: JSON.stringify(this.state),
@@ -77,7 +78,7 @@ class CreateAccount extends Component {
                             <label htmlFor="password">Password</label>
                             <input placeholder="Password" type="password" name="password" id="password" onChange={e => this.handlePasswordInput(e)}/>
                         </div>
-                        <button type="submit">Create Account</button>
+                        <button type="submit" className="submit-button">Create Account</button>
                     </form>
                 </section>
             </div>
