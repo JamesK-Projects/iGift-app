@@ -28,7 +28,7 @@ class WishlistItem extends Component {
 
     handleCheckboxChange = (checkedBoolean, item) => {
 		const checkedStatus = { checked: checkedBoolean, id: item.id}
-		fetch('http://localhost:8000/' + `api/wishlists/${item.id}`, {
+		fetch(config.API_ENDPOINT + `api/wishlists/${item.id}`, {
 			method: 'PATCH',
 			body: JSON.stringify(checkedStatus),
 			headers: {

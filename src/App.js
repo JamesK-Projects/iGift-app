@@ -116,7 +116,7 @@ class App extends Component {
 			checked: false,
 			profile_id: profileId 
 		}
-		fetch('http://localhost:8000/' + `api/wishlists`, {
+		fetch(config.API_ENDPOINT + `api/wishlists`, {
 			method: 'POST',
 			body: JSON.stringify(item),
 			headers: {
@@ -135,19 +135,6 @@ class App extends Component {
 			
 		.catch(error => this.setState({error}))
 		
-		// this.state.profiles.map(profile => {
-		// 	const newWishlist = profile.wishlist
-		// 	if(profile.id == profileId){
-		// 		newWishlist.push({
-		// 			name: newItem,
-		// 			cost: price,
-		// 			checked: true
-		// 		})
-		// 	}
-		// 	this.setState({
-		// 		wishlists: newWishlist //need to match profiles.id to wishlists.profile_id
-		// 	})
-		// })
 	}
 
 	deleteItem = (itemId) => {
@@ -164,7 +151,7 @@ class App extends Component {
 		const updatedBudget = Number(newBudget);
 		const userId = id //temporary - need to use authenticated user's id later
 		const budget = { budget: updatedBudget, id: userId }
-		fetch('http://localhost:8000/' + `api/users/${userId}`, {
+		fetch(config.API_ENDPOINT + `api/users/${userId}`, {
 			method: 'PATCH',
 			body: JSON.stringify(budget),
 			headers: {
