@@ -82,13 +82,13 @@ nav{
     padding: 20px 10px;
 }
 
-.profile-section{
+.budget-section{
     background-color: #678aa7;
     padding: 20px 20px 50px 20px;
     color: white;
 }
 
-.budget-section{
+.profile-section{
     padding: 20px 20px 50px 20px;
     color: #34344A; 
 }
@@ -96,4 +96,13 @@ nav{
 .form-item{
     margin: 5px;
 }
+
+.profile-page-screenshot, .budget-page-screenshot {
+    width: 80%;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #f76582;
+    margin-top: 20px;
+}
+
 
