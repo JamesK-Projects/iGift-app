@@ -222,6 +222,7 @@ class App extends Component {
 							component={ProfilePage}
 						/>
 					</iGiftContext.Provider>
+					<div className="push"></div>
 				</div>
 				<footer className="footer">
         			James K Projects

@@ -39,7 +39,7 @@ class LoginPage extends Component {
 
     render() { 
         return (
-            <div>
+            <div className="login-page">
                 <section className="login-section">
                     <form className="login-form" onSubmit={(e) => this.checkCredentials(e)}>
                         <div>

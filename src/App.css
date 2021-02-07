@@ -9,12 +9,16 @@
     width: 100%;
 }
 
+.push {
+    height: 38px;
+}
+
 .footer {
-    position:relative;
+    position:fixed;
     bottom: 0;
-    height: 20px;
     background-color:#F0F757;
-    padding: 10px 10px;
+    padding: 10px 0 10px 0;
+    width: 100%;
 }
 
 label {

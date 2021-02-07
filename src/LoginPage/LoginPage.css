@@ -1,3 +1,7 @@
+.login-page{
+    min-height: 100%;
+}
+
 .login-section{
     padding-top: 20px;
     padding-bottom: 40px;
@@ -9,4 +13,5 @@
     padding-top: 20px;
     padding-bottom: 40px;
     color: white;
+    min-height: 100%;
 }
