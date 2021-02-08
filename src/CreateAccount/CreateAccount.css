@@ -5,3 +5,22 @@ label{
 .submit-button{
     text-align: center;
 }
+
+.hidden{
+    display: none;
+}
+
+.shown-username-taken{
+    color: red;
+    margin-bottom: 20px;
+}
+
+.shown-fill-all-fields{
+    color: red;
+    margin-top: 20px;
+}
+
+.shown-success{
+    color: white;
+    margin-top: 20px;
+}

@@ -16,6 +16,15 @@
     min-height: 100%;
 }
 
+.login-validation-hidden{
+    display:none;
+}
+
+.login-validation-shown{
+    padding-top: 20px;
+    color: red;
+}
+
 @media all and (min-width: 600px){
     .login-section, .create-account{
         padding-bottom: 50px;

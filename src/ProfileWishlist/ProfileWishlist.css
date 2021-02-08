@@ -11,15 +11,15 @@ input.new-item-price{
 }
 
 input.new-item-submit{
-    background-color: #F0F757;
-    color: #f76582;
-    border: 0;
+    background-color: white;
+    color: #34344A;
+    border-width: 1px;
     font-family: 'Work Sans', sans-serif;
     font-weight: bold;
     height: 22px;
 }
 
 input.new-item-submit:hover{
-    background-color:  #fdd770;
+    background-color:  #ecc7d8;
     cursor: pointer;
 }

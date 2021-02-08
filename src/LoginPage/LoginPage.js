@@ -7,7 +7,8 @@ class LoginPage extends Component {
     static contextType = iGiftContext;
     state = {
         username: '',
-        password: ''
+        password: '',
+        className: 'login-validation-hidden'
     }
 
     checkCredentials = (e) => {
@@ -22,7 +23,9 @@ class LoginPage extends Component {
         })
         if (correctCredentials == true){
             this.props.history.push(`/budget-page/users/${correctUser.id}`)
-        } else window.alert('Username and/or Password are incorrect. Please try again')
+            this.setState({className: 'login-validation-hidden'})
+        // } else window.alert('Username and/or Password are incorrect. Please try again')
+        } else this.setState({className: 'login-validation-shown'})
     }
 
     handleUsernameInput = (e) => {
@@ -44,7 +47,6 @@ class LoginPage extends Component {
                     <form className="login-form" onSubmit={(e) => this.checkCredentials(e)}>
                         <div>
                             <h3 className='section-header'>Log In to an Existing Account</h3>
-                            
                         </div>
                         <div className="form-item">
                                 <label htmlFor="username">Username</label>
@@ -56,6 +58,9 @@ class LoginPage extends Component {
                         </div>
                         <button>Log In</button>
                     </form>
+                    <div>
+                        <p className={this.state.className}>Username and/or Password are incorrect. Please try again</p>
+                    </div>
                 </section>
                 <section className="create-account">
                     <CreateAccount />

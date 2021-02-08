@@ -43,7 +43,7 @@ input {
 }
 
 .button:hover{
-    background-color:  #70517e;
+    background-color:  #ecc7d8;
     cursor: pointer;
 }
 
@@ -70,7 +70,7 @@ button{
 }
 
 button:hover{
-    background-color:  #70517e;
+    background-color:  #ecc7d8;
     cursor: pointer;
 }
 

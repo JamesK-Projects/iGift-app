@@ -48,7 +48,7 @@ h5{
 }
 
 .links>a:hover{
-    background-color:  #ceab92;
+    background-color:  #ecc7d8;
 }
 
 
@@ -111,7 +111,7 @@ nav{
         display: flex;
         justify-content: space-between;
     }
-    
+
     .section-header{
         font-size: 26px;
     } 
