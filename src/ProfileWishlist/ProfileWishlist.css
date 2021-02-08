@@ -20,6 +20,6 @@ input.new-item-submit{
 }
 
 input.new-item-submit:hover{
-    background-color:  #ecc7d8;
+    background-color:  rgb(194, 192, 192);
     cursor: pointer;
 }
