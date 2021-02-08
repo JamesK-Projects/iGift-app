@@ -15,3 +15,9 @@
     color: white;
     min-height: 100%;
 }
+
+@media all and (min-width: 600px){
+    .login-section, .create-account{
+        padding-bottom: 50px;
+    }
+}

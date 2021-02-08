@@ -66,11 +66,28 @@ input{
 }
 
 button.remove-button{
-    flex: 1;
     margin-left: 0;
 }
 
 .total-spent{
     color: #34344A;
     font-family: 'DM Serif Display', serif;
+}
+
+@media all and (min-width: 600px) {
+    .profile-name{
+        font-size: 32px;
+    }
+    label{
+        font-size: 20px;
+    }
+}
+
+@media all and (min-width: 800px) {
+    .profile-wishlist, .profile-total{
+        width: 740px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }

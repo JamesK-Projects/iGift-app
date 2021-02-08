@@ -97,13 +97,71 @@ nav{
     margin: 5px;
 }
 
-.profile-page-screenshot, .budget-page-screenshot {
+.screenshot {
     width: 90%;
     border-radius: 10px;
     border-width: 3px;
     border-style: solid;
     border-color: #f76582;
     margin-top: 20px;
+}
+
+@media all and (min-width: 600px) {
+    .Header{
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .section-header{
+        font-size: 26px;
+    } 
+
+    .section-content{
+        display: flex;
+    }
+
+    .reverse{
+        flex-direction: row-reverse;
+    }
+
+    p{
+        font-size: 20px;
+    }
+
+    .budget-section-description, .profile-section-description{
+        flex: 2;
+        width: auto;
+        margin-top: 40px;
+        vertical-align: middle;
+    }
+
+    .budget-section-description{
+        margin-right: 20px;
+    }
+
+    .profile-section-description{
+        margin-left: 20px;
+    }
+
+    .screenshot{
+        flex: 3;
+        width: 50%;
+    }
+}
+
+@media all and (min-width: 700px) {
+    p{
+        font-size: 22px;
+    }
+}
+
+@media all and (min-width: 800px) {
+    .section-content{
+        width: 760px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    } 
 }
 
 
