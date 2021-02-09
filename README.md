@@ -1,70 +1,25 @@
-# Getting Started with Create React App
+# iGift
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Link to live app: https://igift-app.vercel.app/
 
-## Available Scripts
+## Summary of App
 
-In the project directory, you can run:
+iGift is designed to help consumers track their holiday gift-spending. 
 
-### `npm start`
+After creating an account and logging in, the user will first set their budget. They will have the option to go back and adjust this budget whenever they want.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Then, the user can create a profile for each person on their shopping list. The list of the user's profiles will be shown on the main budget page, and clicking on a profile will take the user to the profile's page. 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Screenshot of the main budget page:
 
-### `npm test`
+![alt text](./src/images/budget-page-screenshot-border.png "Budget Page Screenshot")
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Each profile's page includes a 'Wishlist' section where the user can add or remove gift items and their prices, and a 'Gifts Purchased' section that lists each of the gifts that have been purchased along with their costs. When a user purchases an item on their wishlist, they can check the box next to that item and it will be added to the 'Gifts Purchased' section below. The total spent on each person will be shown at the bottom of their profile.
 
-### `npm run build`
+Screenshot of a profile page:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![alt text](./src/images/profile-page-screenshot-border.png "Profile Page Screenshot")
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+As more gifts are purchased, the cost of each gift will be deducted from the user's budget. At the bottom of the main budget page the user can see how much they have spent, as well as how much of their budget remains. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
