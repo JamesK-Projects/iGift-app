@@ -10,7 +10,7 @@ After creating an account and logging in, the user will first set their budget. 
 
 Then, the user can create a profile for each person on their shopping list. The list of the user's profiles will be shown on the main budget page, and clicking on a profile will take the user to the profile's page. 
 
-
+![alt text](/igift-app/src/images/budget-page-screenshot.png "Budget Page Screenshot")
 
 Each profile's page includes a 'Wishlist' section where the user can add or remove gift items and their prices, and a 'Gifts Purchased' section that lists each of the gifts that have been purchased along with their costs. When a user purchases an item on their wishlist, they can check the box next to that item and it will be added to the 'Gifts Purchased' section below. The total spent on each person will be shown at the bottom of their profile.
 
