@@ -22,4 +22,21 @@ Screenshot of a profile page:
 
 As more gifts are purchased, the cost of each gift will be deducted from the user's budget. At the bottom of the main budget page the user can see how much they have spent, as well as how much of their budget remains. 
 
+## Technology Used
+
+### Frontend
+
+- HTML
+- CSS
+- Javascript
+- React
+- Hosted on Vercel
+
+### Backend
+
+- Node.js
+- PostgreSql
+- Hosted on Heroku
+
+
 
