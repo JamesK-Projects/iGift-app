@@ -77,19 +77,6 @@ const ApiService = {
 			
 		.catch(error => this.setState({error}))
 		
-		// this.state.profiles.map(profile => {
-		// 	const newWishlist = profile.wishlist
-		// 	if(profile.id == profileId){
-		// 		newWishlist.push({
-		// 			name: newItem,
-		// 			cost: price,
-		// 			checked: true
-		// 		})
-		// 	}
-		// 	this.setState({
-		// 		wishlists: newWishlist //need to match profiles.id to wishlists.profile_id
-		// 	})
-		// })
 		console.log(this.state)
     },
     
