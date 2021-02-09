@@ -97,9 +97,7 @@ class CreateAccount extends Component {
             this.setState({classNameSuccess: 'shown-success'})
         })
         .catch(error => this.setState({error}))
-        
     }
-
 
     render() { 
         return (

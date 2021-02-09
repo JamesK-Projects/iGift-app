@@ -24,7 +24,6 @@ class LoginPage extends Component {
         if (correctCredentials == true){
             this.props.history.push(`/budget-page/users/${correctUser.id}`)
             this.setState({className: 'login-validation-hidden'})
-        // } else window.alert('Username and/or Password are incorrect. Please try again')
         } else this.setState({className: 'login-validation-shown'})
     }
 

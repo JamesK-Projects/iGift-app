@@ -42,13 +42,11 @@ class ProfileWishlist extends Component {
             <div>
                 <h2 className="section-header">Wishlist</h2>
                 {this.props.wishlists.map((item, index) => {
-                    
                     if(item.profile_id === this.props.profile.id){
                         return(
                             <WishlistItem item={item} key={index} />
                         )
                     }
-                    
                 })}
                 <form onSubmit={this.handleSubmit}>
                     <input type="text" value={this.state.name} onChange={this.handleItemChange} placeholder="Item Name" className="new-item-name"/>

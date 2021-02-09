@@ -36,31 +36,25 @@ class BudgetPage extends Component {
         }
 
         return (
-            // <iGiftContext.Consumer>
-            //     {(context) => (
-                    this.context.users.map((user, index) => {
-                        if(user.id == this.props.match.params.userId){
-                            
-                            return(
-                            <div key={user.id}>
-                                <section className="total-budget">
-                                    <h2>My Budget:</h2>
-                                    <h2>{formatter.format(user.budget)}</h2>
-                                    <input type="text" placeholder="New Budget" name="budget" id="budget" className="textbox" value={this.state.budget} onChange={(event) => this.setBudget(event)}/>
-                                    <input type="button" value="Update Budget" className="button" onClick={() => this.handleUpdateBudget()}/>
-                                </section>
-                                <ProfileList user={user}/>
-                                <AddProfile user={user}/>
-                                <section className="current-budget">
-                                    <RemainingBudget budget={user.budget} user={user} profiles={this.context.profiles} wishlists={this.context.wishlists} {...this.props}/>
-                                </section>
-                            </div>
-                        ) 
-                        }
-                        
-                    })
-            //     )}
-            // </iGiftContext.Consumer>
+            this.context.users.map(user => {
+                if(user.id == this.props.match.params.userId){
+                    return(
+                    <div key={user.id}>
+                        <section className="total-budget">
+                            <h2>My Budget:</h2>
+                            <h2>{formatter.format(user.budget)}</h2>
+                            <input type="text" placeholder="New Budget" name="budget" id="budget" className="textbox" value={this.state.budget} onChange={(event) => this.setBudget(event)}/>
+                            <input type="button" value="Update Budget" className="button" onClick={() => this.handleUpdateBudget()}/>
+                        </section>
+                        <ProfileList user={user}/>
+                        <AddProfile user={user}/>
+                        <section className="current-budget">
+                            <RemainingBudget budget={user.budget} user={user} profiles={this.context.profiles} wishlists={this.context.wishlists} {...this.props}/>
+                        </section>
+                    </div>
+                ) 
+                }
+            })
         );
     }
 }

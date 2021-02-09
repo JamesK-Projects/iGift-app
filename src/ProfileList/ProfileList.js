@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import { useParams } from 'react-router-dom';
 import iGiftContext from '../iGiftContext';
 import ProfileToken from '../ProfileToken/ProfileToken';
 
 class ProfileList extends Component {
     static contextType = iGiftContext;
-
     render() { 
         return(
             <div>

@@ -18,7 +18,6 @@ class ProfilePurchasedTotal extends Component {
                     purchasedTotal += item.cost
                 }
             }
-            
         })
 
         return (

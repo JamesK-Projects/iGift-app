@@ -8,9 +8,7 @@ class LandingPage extends Component {
         return (
             <div className="landing-page">
                 <header>
-                    {/* <h1 className="app-name">iGift</h1> */}
                     <h2 className="app-slogan">Gift Smarter.</h2>
-                    
                 </header>
                 <div className="landing-page-sections">
                     <section className="budget-section">
@@ -23,7 +21,6 @@ class LandingPage extends Component {
                             <img className="screenshot" src={BudgetPageScreenshot} />
                         </div>
                     </section>
-
                     <section className="profile-section">
                         <header>
                             <h3 className="section-header">Organize Your Gift-Giving!</h3>
@@ -39,7 +36,4 @@ class LandingPage extends Component {
     }
 }
  
-
-
-
 export default LandingPage;

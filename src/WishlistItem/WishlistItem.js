@@ -14,13 +14,12 @@ class WishlistItem extends Component {
           }
         })
         .then(res => {
-        if (!res.ok) {
-            return res.json().then(error => Promise.reject(error))
-        }
-        // no content on success, so skip res.json()
+            if (!res.ok) {
+                return res.json().then(error => Promise.reject(error))
+            }
         })
         .then(() => {
-        cb(itemId)
+            cb(itemId)
         })
         .catch(error => {
         })
@@ -44,9 +43,7 @@ class WishlistItem extends Component {
 		.then(data => {
 			this.context.getWishlists()
 		})
-			
 		.catch(error => this.setState({error}))
-		
 	}
 
     render() { 

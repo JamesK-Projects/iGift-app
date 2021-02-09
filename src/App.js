@@ -25,11 +25,7 @@ class App extends Component {
 		this.setState({
 			users,
 			error: null
-		},
-		// () => {
-		// // 	this.props.history.push('/budget-page/users/1')
-		// }
-		)
+		})
 	}
 	
 
@@ -37,22 +33,14 @@ class App extends Component {
 		this.setState({
 			profiles,
 			error: null
-		},
-		// () => {
-		// 	this.props.history.push('/')
-		// }
-		)
+		})
 	}
 
 	setWishlists = wishlists => {
 		this.setState({
 			wishlists,
 			error: null
-		},
-		// () => {
-		// 	this.props.history.push('/')
-		// }
-		)
+		})
 	}
 
 	getUsers = () => {
@@ -202,7 +190,6 @@ class App extends Component {
 						<Route 
 							path='/'
 							component={Header}
-						// <Header props={this.props}
 						/>
 						
 						<Route 

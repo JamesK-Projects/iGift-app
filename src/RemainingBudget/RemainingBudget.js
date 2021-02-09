@@ -40,7 +40,6 @@ class RemainingBudget extends Component {
                 <h3 className={className}>{budgetMessage}</h3>
             </div>
         )
-        
     }
 }
  

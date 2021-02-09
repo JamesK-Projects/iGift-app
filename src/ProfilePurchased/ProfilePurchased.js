@@ -19,7 +19,6 @@ class ProfilePurchased extends Component {
                                 )
                             }
                         }
-                        
                     })}  
                 </ul>
                 <ProfilePurchasedTotal profile={this.props.profile} />
